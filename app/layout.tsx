@@ -2,16 +2,15 @@
 
 import * as React from 'react';
 import './globals.css';
-import { ReactNode, useEffect } from 'react';
+import { ReactNode } from 'react';
+import { ThemeProvider } from '~/contexts/theme-context';
 
 export default function RootLayout({ children }: { children: ReactNode }) {
-  useEffect(() => {
-    document.documentElement.classList.add('dark');
-  }, []);
-
   return (
     <html lang="en">
-      <body className="bg-background text-white">{children}</body>
+      <ThemeProvider>
+        <body className="bg-background text-white">{children}</body>
+      </ThemeProvider>
     </html>
   );
 }

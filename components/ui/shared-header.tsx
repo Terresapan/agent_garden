@@ -3,9 +3,12 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { Button } from "./button";
 import { ButtonColorful } from "./button-colorful";
+import { useTheme } from '~/contexts/theme-context';
+import { Moon, Sun } from 'lucide-react';
 
 export const SharedHeader = () => {
   const router = useRouter();
+  const { theme, toggleTheme } = useTheme();
 
   const handleGetInTouch = () => {
     if (window.location.pathname !== '/') {
@@ -50,6 +53,10 @@ export const SharedHeader = () => {
             onClick={handleGetInTouch}
           >
             Get in Touch
+          </Button>
+          <Button variant="outline" size="icon" onClick={toggleTheme}>
+            {theme === 'light' ? <Moon className="h-[1.2rem] w-[1.2rem]" /> : <Sun className="h-[1.2rem] w-[1.2rem]" />}
+            <span className="sr-only">Toggle theme</span>
           </Button>
         </div>
       </div>
