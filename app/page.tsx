@@ -17,6 +17,7 @@ import { ButtonColorful } from "@/components/ui/button-colorful";
 import Link from "next/link";
 import { SharedHeader } from "@/components/ui/shared-header";
 import { SharedFooter } from "@/components/ui/shared-footer";
+import { FeaturedBlogPosts } from "@/components/FeaturedBlogPosts"; // Import the new component
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 
@@ -226,67 +227,8 @@ const IndexPage = () => {
             </span>
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-16 justify-items-center max-w-6xl mx-auto">
-<div className="relative w-full transform transition-transform duration-300 hover:-translate-y-1">
-  <Link href="/blog/rise-of-autonomous-ai-agents">
-    <GlareCard className="flex flex-col items-center justify-center p-6 text-center relative overflow-hidden">
-      <img
-        src="/lovable-uploads/1b3826d5-2512-4379-a37a-797d1af325a9.png"
-        alt="Rise of Autonomous AI Agents"
-        className="absolute inset-0 w-full h-full object-cover opacity-40"
-      />
-      <div className="relative z-10">
-        <h3 className="text-xl font-bold mb-2 text-white">
-          The Rise of Autonomous AI Agents
-        </h3>
-        <p className="text-sm text-gray-200">
-          Explore how autonomous AI agents are transforming industries by automating complex workflows and decision-making.
-        </p>
-      </div>
-    </GlareCard>
-  </Link>
-</div>
-
-<div className="relative w-full transform transition-transform duration-300 hover:-translate-y-1">
-  <Link href="/blog/building-smarter-ai-assistants">
-    <GlareCard className="flex flex-col items-center justify-center p-6 text-center relative overflow-hidden">
-      <img
-        src="/lovable-uploads/3a05dbb9-2969-4937-a4f4-c122dc1b2ede.png"
-        alt="Building Smarter AI Assistants"
-        className="absolute inset-0 w-full h-full object-cover opacity-40"
-      />
-      <div className="relative z-10">
-        <h3 className="text-xl font-bold mb-2 text-white">
-          Building Smarter AI Assistants
-        </h3>
-        <p className="text-sm text-gray-200">
-          Learn best practices for developing intelligent, context-aware AI assistants that enhance productivity and user experience.
-        </p>
-      </div>
-    </GlareCard>
-  </Link>
-</div>
-
-<div className="relative w-full transform transition-transform duration-300 hover:-translate-y-1">
-  <Link href="/blog/future-of-multi-agent-collaboration">
-    <GlareCard className="flex flex-col items-center justify-center p-6 text-center relative overflow-hidden">
-      <img
-        src="/lovable-uploads/3509990a-996f-4e46-a672-02033d1a47d8.png"
-        alt="Future of Multi-Agent Collaboration"
-        className="absolute inset-0 w-full h-full object-cover opacity-40"
-      />
-      <div className="relative z-10">
-        <h3 className="text-xl font-bold mb-2 text-white">
-          The Future of Multi-Agent Collaboration
-        </h3>
-        <p className="text-sm text-gray-200">
-          Discover how multiple AI agents can work together seamlessly to solve complex problems and drive innovation.
-        </p>
-      </div>
-    </GlareCard>
-  </Link>
-</div>
-          </div>
+          {/* Replace static blog posts with the dynamic FeaturedBlogPosts component */}
+          <FeaturedBlogPosts />
         </div>
 
         {/* About Me Section */}
