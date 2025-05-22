@@ -3,7 +3,6 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 // Define the shape of the context data
 interface ThemeContextData {
   theme: string;
-  toggleTheme: () => void;
 }
 
 // Create the context with a default value
@@ -16,34 +15,18 @@ interface ThemeProviderProps {
 
 // Create the ThemeProvider component
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
-  const [theme, setTheme] = useState<string>('light'); // Default theme is light
+  const theme = 'dark'; // Always dark theme
 
-  // Function to toggle the theme
-  const toggleTheme = () => {
-    setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
-  };
-
-  // Effect to update documentElement class and local storage
+  // Effect to update documentElement class
   useEffect(() => {
     const root = window.document.documentElement;
-    if (theme === 'dark') {
-      root.classList.add('dark');
-    } else {
-      root.classList.remove('dark');
-    }
-    localStorage.setItem('theme', theme);
-  }, [theme]);
-
-  // Effect to load theme from local storage on initial render
-  useEffect(() => {
-    const storedTheme = localStorage.getItem('theme');
-    if (storedTheme) {
-      setTheme(storedTheme);
-    }
+    root.classList.add('dark');
+    // Ensure light class is not present if it was somehow added externally
+    root.classList.remove('light'); 
   }, []);
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+    <ThemeContext.Provider value={{ theme }}>
       {children}
     </ThemeContext.Provider>
   );
